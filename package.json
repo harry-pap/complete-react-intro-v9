@@ -20,6 +20,7 @@
     "@vitejs/plugin-react": "^6.0.5",
     "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
     "globals": "^17.11.0",
     "prettier": "^3.9.6",
     "vite": "^8.2.1"
@@ -27,5 +28,10 @@
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
+  },
+  "overrides": {
+    "eslint-plugin-react": {
+      "eslint": "$eslint"
+    }
   }
 }
