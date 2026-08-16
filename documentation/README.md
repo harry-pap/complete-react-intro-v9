@@ -4,3 +4,6 @@
 * Run:
 `npm install`
 `npm run dev`
+
+
+Make sure to install the React Dev Tools extension in Chrome/Firefox
