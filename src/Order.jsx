@@ -14,11 +14,12 @@ export default function Order() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  let price, selectedPizza;
+  let price, formattedPrice, selectedPizza;
 
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => selectedPizzaType === pizza.id);
-    price = intl.format(selectedPizza.sizes[selectedPizzaSize]);
+    price = selectedPizza.sizes[selectedPizzaSize];
+    formattedPrice = intl.format(price);
   }
 
   // else {
@@ -64,11 +65,14 @@ export default function Order() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            setCart([...cart, {
-              pizza: selectedPizza,
-              size: selectedPizzaSize,
-              price: price,
-            }]);
+            setCart([
+              ...cart,
+              {
+                pizza: selectedPizza,
+                size: selectedPizzaSize,
+                price: price,
+              },
+            ]);
           }}
         >
           <div>
@@ -133,12 +137,12 @@ export default function Order() {
                 description={selectedPizza.description}
                 image={selectedPizza.image}
               />
-              <p>{price}</p>
+              <p>{formattedPrice}</p>
             </div>
           )}
         </form>
       </div>
-      {loading ? <p>Loading...</p> : <Cart cart={cart} checkout={ () => {} }/>}
+      {loading ? <p>Loading...</p> : <Cart cart={cart} checkout={() => {}} />}
     </div>
   );
 }
