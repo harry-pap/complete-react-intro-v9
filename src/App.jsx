@@ -1,17 +1,23 @@
+import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Order from "./Order";
-import { StrictMode } from "react";
-import { PizzaOfTheDay } from "./PizzaOfTheDay.jsx"
+import { PizzaOfTheDay } from "./PizzaOfTheDay.jsx";
+import Header from "./Header";
+import { CartContext } from "./contexts.jsx";
 
 const App = () => {
+  const cartHook = useState([]);
+
   return (
-    // it's good to do that
+    // it's a good practise to use strict mode
     <StrictMode>
-      <div>
-        <h1 className="logo">Padre Gino's - Order now</h1>
-        <Order />
-        <PizzaOfTheDay/>
-      </div>
+      <CartContext value={cartHook}>
+        <div>
+          <Header />
+          <Order />
+          <PizzaOfTheDay />
+        </div>
+      </CartContext>
     </StrictMode>
   );
 };

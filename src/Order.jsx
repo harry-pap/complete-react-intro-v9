@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Pizza from "./Pizza";
 import Cart from "./Cart";
+import { CartContext } from "./contexts.jsx";
 
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -10,7 +11,7 @@ const intl = new Intl.NumberFormat("en-US", {
 export default function Order() {
   const [selectedPizzaType, setSelectedPizzaType] = useState("pepperoni");
   const [selectedPizzaSize, setSelectedPizzaSize] = useState("M");
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useContext(CartContext);
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,15 +37,6 @@ export default function Order() {
     price = selectedPizza.sizes[selectedPizzaSize];
     formattedPrice = intl.format(price);
   }
-
-  // else {
-  //   // this wasn't included in the course, I added it
-  //   selectedPizza = {
-  //     id: "koukou",
-  //     name: "koukou",
-  //     description: "koukou",
-  //   };
-  // }
 
   // this is a side effect function, we don't want it to be called every single time
   // the Order function is called on every single render
