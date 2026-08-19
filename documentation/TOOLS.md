@@ -45,3 +45,10 @@ Scripts:
 * dev: run locally
 * build: would do so in a Github Action or so
 * preview: build it for production
+
+
+# Routing
+This course uses Tanstack Router instead of React Router, as the former is primarily client-side focused,
+where the latter is split between server and client focused.
+
+`npm install @tanstack/react-router@latest`
