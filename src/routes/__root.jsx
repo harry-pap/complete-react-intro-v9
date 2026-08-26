@@ -4,6 +4,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { PizzaOfTheDay } from "../PizzaOfTheDay.jsx";
 import Header from "../Header.jsx";
 import { CartContext } from "../contexts.jsx";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // in this file we store the common code for all routing
 
@@ -23,6 +24,7 @@ export const Route = createRootRoute({
           </div>
         </CartContext>
         <TanStackRouterDevtools />
+        <ReactQueryDevtools />
       </>
     );
   },

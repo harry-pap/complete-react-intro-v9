@@ -3,6 +3,7 @@ import globals from "globals";
 import react from "eslint-plugin-react";
 import prettier from "eslint-config-prettier";
 import reactPlugin from "eslint-plugin-react";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
@@ -21,6 +22,7 @@ export default [
   },
   // React 19 auto-imports React for JSX, so no `import React` needed
   react.configs.flat["jsx-runtime"],
+  ...pluginQuery.configs["flat/recommended"],
   {
     files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
     languageOptions: {

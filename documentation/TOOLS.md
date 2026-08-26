@@ -52,3 +52,7 @@ This course uses Tanstack Router instead of React Router, as the former is prima
 where the latter is split between server and client focused.
 
 `npm install @tanstack/react-router@latest`
+
+
+# Store management
+Not included in this course, you can use `zustand` to manage state, including local storage.

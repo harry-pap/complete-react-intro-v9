@@ -12,3 +12,5 @@ Only use it for app level data, like the theme, or the user info if they have lo
 * routing
 Pseudo routing in Single Page applications, so that back and forward will work
 
+* TanStack query - replaces most of the `useEffect` use cases, used to cache data, etc. Anything related to consuming the backend
+
