@@ -56,3 +56,7 @@ where the latter is split between server and client focused.
 
 # Store management
 Not included in this course, you can use `zustand` to manage state, including local storage.
+
+
+# Internationalisation
+See https://react.i18next.com/

@@ -4,6 +4,7 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
   server: {
+    // proxy /api and /public calls to avoid running into CORS errors
     proxy: {
       "/api": {
         target: "http://127.0.0.1:3000",
