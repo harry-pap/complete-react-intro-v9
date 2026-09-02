@@ -3,14 +3,10 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 import Pizza from "../Pizza.jsx";
 import Cart from "../Cart.jsx";
 import { CartContext } from "../contexts.jsx";
+import priceConverter from "../useCurrency";
 
 export const Route = createLazyFileRoute("/order")({
   component: OrderLazy,
-});
-
-const intl = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "EUR",
 });
 
 function OrderLazy() {
@@ -40,7 +36,7 @@ function OrderLazy() {
   if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => selectedPizzaType === pizza.id);
     price = selectedPizza.sizes[selectedPizzaSize];
-    formattedPrice = intl.format(price);
+    formattedPrice = priceConverter(price);
   }
 
   // this is a side effect function, we don't want it to be called every single time

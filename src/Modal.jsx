@@ -12,6 +12,7 @@ const Modal = ({ children }) => {
   useEffect(() => {
     const modalRoot = document.getElementById("modal");
     modalRoot.appendChild(elRef.current);
+
     // cleanup, so we don't leave div tags under modal
     return () => modalRoot.removeChild(elRef.current);
   }, []);

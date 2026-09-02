@@ -1,7 +1,4 @@
-const intl = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "EUR",
-});
+import priceConverter from "./useCurrency";
 
 export default function Cart({ cart, checkout }) {
   const total = cart.map((it) => it.price).reduce((acc, cur) => acc + cur, 0);
@@ -18,7 +15,7 @@ export default function Cart({ cart, checkout }) {
           </li>
         ))}
       </ul>
-      <p>Total: {intl.format(total)}</p>
+      <p>Total: {priceConverter(total)}</p>
       <button onClick={checkout}>Checkout</button>
     </div>
   );
