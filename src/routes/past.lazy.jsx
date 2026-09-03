@@ -5,12 +5,27 @@ import getPastOrder from "../api/getPastOrder.js";
 import Modal from "../Modal";
 import { createLazyFileRoute } from "@tanstack/react-router";
 import priceConverter from "../useCurrency.jsx";
+import ErrorBoundary from "../ErrorBoundary.jsx";
 
 export const Route = createLazyFileRoute("/past")({
-  component: PastOrdersRoute,
+  component: ErrorBoundaryWrappedPastOrderRoutes,
 });
 
+function ErrorBoundaryWrappedPastOrderRoutes(
+  // props,
+) {
+  return (
+    <ErrorBoundary>
+      {/* If we did have props, we would pass through them this way */}
+      {/*<PastOrdersRoute {...props}/>*/}
+      <PastOrdersRoute />
+    </ErrorBoundary>
+  );
+}
+
 function PastOrdersRoute() {
+  // uncomment the line below to test the Error Boundaries
+  // throw new Error("Boom");
   const [page, setPage] = useState(1);
   const [focusedOrder, setFocusedOrder] = useState();
   const { isLoading, data } = useQuery({

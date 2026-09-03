@@ -60,3 +60,9 @@ Not included in this course, you can use `zustand` to manage state, including lo
 
 # Internationalisation
 See https://react.i18next.com/
+
+
+# Error boundaries
+See `react-error-boundary` for real world use cases. It's manually implemented in this project
+
+
