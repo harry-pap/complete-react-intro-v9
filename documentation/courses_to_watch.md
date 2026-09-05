@@ -6,6 +6,7 @@
 | CSS Pro            | https://master.dev/courses/pro-css/                       | TODO         |
 | React Intro        | https://master.dev/courses/complete-react-v9/             | IN PROGRESS  |
 | React Intermidiate | https://master.dev/courses/intermediate-react-v6/         | TODO         | 
+| Front End Testing  | https://master.dev/courses/testing/                       | TODO         |
 | React & TS         | https://master.dev/courses/react-typescript-v3/           | TODO         |
 | React Native       | https://master.dev/courses/react-native-v3/               | TODO         |
 | Full stack Intro   | https://master.dev/courses/fullstack-v3/                  | TODO         |

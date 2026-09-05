@@ -16,4 +16,9 @@ export default defineConfig({
   },
   // TanStack should go before react
   plugins: [tanstackRouter(), react()],
+  test: {
+    // another alternative is playwright, it's the up and coming but
+    // probably not mature enough yet
+    environment: "happy-dom",
+  },
 });
