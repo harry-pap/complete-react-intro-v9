@@ -20,5 +20,8 @@ export default defineConfig({
     // another alternative is playwright, it's the up and coming but
     // probably not mature enough yet
     environment: "happy-dom",
+    coverage: {
+      reporter: ["text", "json", "html"],
+    },
   },
 });
