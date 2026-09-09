@@ -10,6 +10,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css}\" ",
     "lint": "eslint",
     "test": "vitest",
+    "test:ui": "vitest --ui",
     "coverage": "vitest --coverage"
   },
   "type": "module",
@@ -25,6 +26,7 @@
     "@testing-library/react": "^16.3.3",
     "@vitejs/plugin-react": "^6.0.5",
     "@vitest/coverage-v8": "^5.0.0",
+    "@vitest/ui": "^5.0.0",
     "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
