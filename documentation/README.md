@@ -6,6 +6,9 @@ Run:
 `npm run dev`
 
 
-Make sure to install the React Dev Tools extension in Chrome/Firefox
+* Make sure to install the React Dev Tools extension in Chrome/Firefox.
 
+
+* To install playwright, run:
+`npx playwright install`
 

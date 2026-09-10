@@ -2,6 +2,8 @@ import { expect, test } from "vitest";
 import { render } from "@testing-library/react";
 import Cart from "../Cart";
 
+// snapshot testing works in both workspaces
+
 test("snapshot with empty cart", async () => {
   const { asFragment } = render(<Cart cart={[]} />);
   expect(asFragment()).toMatchSnapshot();

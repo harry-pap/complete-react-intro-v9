@@ -25,6 +25,8 @@
     "@tanstack/router-plugin": "^1.168.33",
     "@testing-library/react": "^16.3.3",
     "@vitejs/plugin-react": "^6.0.5",
+    "@vitest/browser": "^5.0.0",
+    "@vitest/browser-playwright": "^5.0.0",
     "@vitest/coverage-v8": "^5.0.0",
     "@vitest/ui": "^5.0.0",
     "eslint": "^10.8.1",
@@ -32,9 +34,11 @@
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.11.0",
     "happy-dom": "^20.14.0",
+    "playwright": "^1.63.0",
     "prettier": "^3.9.6",
     "vite": "^8.2.1",
     "vitest": "^5.0.0",
+    "vitest-browser-react": "^2.3.0",
     "vitest-fetch-mock": "^0.4.5"
   },
   "dependencies": {
