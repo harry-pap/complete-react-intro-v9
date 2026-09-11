@@ -66,23 +66,23 @@ function OrderLazy() {
     // previous render(for example selectedPizzaType), in order to execute again.
     // [] means it's executed only once
   );
+
+  function addToCart() {
+    setCart([
+      ...cart,
+      {
+        pizza: selectedPizza,
+        size: selectedPizzaSize,
+        price: price,
+      },
+    ]);
+  }
+
   return (
     <div className="order-page">
       <div className="order">
         <h2>Create Order</h2>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setCart([
-              ...cart,
-              {
-                pizza: selectedPizza,
-                size: selectedPizzaSize,
-                price: price,
-              },
-            ]);
-          }}
-        >
+        <form action={addToCart}>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
             <select
