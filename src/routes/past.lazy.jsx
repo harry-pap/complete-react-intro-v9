@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Suspense, use } from "react";
 import { useQuery } from "@tanstack/react-query";
 import getPastOrders from "../api/getPastOrders.js";
 import getPastOrder from "../api/getPastOrder.js";
@@ -14,26 +14,40 @@ export const Route = createLazyFileRoute("/past")({
 function ErrorBoundaryWrappedPastOrderRoutes(
   // props,
 ) {
-  return (
-    <ErrorBoundary>
-      {/* If we did have props, we would pass through them this way */}
-      {/*<PastOrdersRoute {...props}/>*/}
-      <PastOrdersRoute />
-    </ErrorBoundary>
-  );
-}
-
-function PastOrdersRoute() {
-  // uncomment the line below to test the Error Boundaries
-  // throw new Error("Boom");
   const [page, setPage] = useState(1);
-  const [focusedOrder, setFocusedOrder] = useState();
-  const { isLoading, data } = useQuery({
+  const loadedPromise = useQuery({
     queryKey: ["past-orders", page],
     queryFn: () => getPastOrders(page),
     // expire every 30 seconds
     staleTime: 10_000,
-  });
+  }).promise;
+
+  return (
+    <ErrorBoundary>
+      {/* If we did have props, we would pass through them this way */}
+      {/*<PastOrdersRoute {...props}/>*/}
+
+      <Suspense
+        fallback={
+          <div className="past-orders">
+            <h2>Loading Past Orders...</h2>
+          </div>
+        }
+      >
+        <PastOrdersRoute
+          loadedPromise={loadedPromise}
+          page={page}
+          setPage={setPage}
+        />
+      </Suspense>
+    </ErrorBoundary>
+  );
+}
+
+function PastOrdersRoute({ loadedPromise, page, setPage }) {
+  // uncomment the line below to test the Error Boundaries
+  // throw new Error("Boom");
+  const [focusedOrder, setFocusedOrder] = useState();
 
   // below is the way to rename to a different variable (as isLoading already exists)
   const { isLoading: isLoadingPastOrder, data: pastOrderData } = useQuery({
@@ -43,12 +57,7 @@ function PastOrdersRoute() {
     enabled: !!focusedOrder, // don't make an API if there's no focused order
   });
 
-  if (isLoading)
-    return (
-      <div className="past-orders">
-        <h2>LOADING...</h2>
-      </div>
-    );
+  const data = use(loadedPromise);
 
   return (
     <div className="past-orders">
