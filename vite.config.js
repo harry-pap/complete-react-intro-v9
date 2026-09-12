@@ -15,5 +15,17 @@ export default defineConfig({
     },
   },
   // TanStack should go before react
-  plugins: [tanstackRouter(), react()],
+  plugins: [
+    tanstackRouter(),
+    react({
+      babel: {
+        plugins: [
+          ["babel-plugin-react-compiler"],
+          {
+            target: "19",
+          },
+        ],
+      },
+    }),
+  ],
 });

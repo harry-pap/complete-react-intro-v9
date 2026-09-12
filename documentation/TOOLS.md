@@ -66,3 +66,6 @@ See https://react.i18next.com/
 See `react-error-boundary` for real world use cases. It's manually implemented in this project
 
 
+# React compiler
+To run a healthcheck:
+`npx react-compiler-healthcheck`

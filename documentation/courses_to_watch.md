@@ -4,7 +4,7 @@
 | JS Intro           | https://master.dev/courses/getting-started-javascript-v3/ | DONE         |
 | CSS Intro          | https://master.dev/teachers/kevin-powell/                 | PAUSED       |
 | CSS Pro            | https://master.dev/courses/pro-css/                       | TODO         |
-| React Intro        | https://master.dev/courses/complete-react-v9/             | IN PROGRESS  |
+| React Intro        | https://master.dev/courses/complete-react-v9/             | DONE         |
 | React Intermidiate | https://master.dev/courses/intermediate-react-v6/         | TODO         | 
 | Front End Testing  | https://master.dev/courses/testing/                       | TODO         |
 | React & TS         | https://master.dev/courses/react-typescript-v3/           | TODO         |
