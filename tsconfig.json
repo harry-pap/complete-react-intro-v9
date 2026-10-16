@@ -1,0 +1,9 @@
+{
+  // solution-style config: the real settings live in the referenced projects,
+  // one for the app (browser) and one for the tooling files (node)
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

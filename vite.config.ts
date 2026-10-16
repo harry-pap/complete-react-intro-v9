@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 
 export default defineConfig({
@@ -17,15 +18,9 @@ export default defineConfig({
   // TanStack should go before react
   plugins: [
     tanstackRouter(),
-    react({
-      babel: {
-        plugins: [
-          ["babel-plugin-react-compiler"],
-          {
-            target: "19",
-          },
-        ],
-      },
-    }),
+    react(),
+    // plugin-react v6 transpiles with oxc and no longer takes a `babel`
+    // option, so the React Compiler runs through @rolldown/plugin-babel
+    babel({ presets: [reactCompilerPreset()] }),
   ],
 });

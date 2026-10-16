@@ -4,11 +4,26 @@ import react from "eslint-plugin-react";
 import prettier from "eslint-config-prettier";
 import reactPlugin from "eslint-plugin-react";
 import pluginQuery from "@tanstack/eslint-plugin-query";
+import tseslint from "typescript-eslint";
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
-  { ignores: ["dist/"] },
+  { ignores: ["dist/", "coverage/", "src/routeTree.gen.ts"] },
   js.configs.recommended,
+  // type-aware linting, .ts/.tsx only: the .js/.jsx files are not migrated yet
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ["**/*.ts", "**/*.tsx"],
+  })),
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   {
     ...reactPlugin.configs.flat.recommended,
     settings: {

@@ -20,14 +20,14 @@ export default defineConfig({
           // this course uses happy-dom, going forward playwright and browser
           // tests is the way to go
           environment: "happy-dom",
-          include: ["src/__tests__/**/*.node.test.jsx"],
+          include: ["src/__tests__/**/*.node.test.{js,jsx,ts,tsx}"],
         },
       },
       {
         extends: true,
         test: {
           name: "browser",
-          include: ["src/__tests__/**/*.browser.test.jsx"],
+          include: ["src/__tests__/**/*.browser.test.{js,jsx,ts,tsx}"],
           browser: {
             enabled: true,
             provider: playwright(),
